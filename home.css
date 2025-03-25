@@ -17,7 +17,6 @@ body, html {
 .sidebar .logo h1 {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 1.9rem;
 }
 .sidebar ul {
     list-style: none;
@@ -31,8 +30,8 @@ body, html {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: background 0.3s, transform 0.2s;
     font-size: 1.1rem;
+    transition: background 0.3s, transform 0.2s;
 }
 .sidebar ul li:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -82,7 +81,6 @@ body, html {
     height: 10px;
     border-radius: 50%;
     margin-right: 5px;
-    display: inline-block;
 }
 .status-dot.green {
     background-color: #4caf50;
@@ -90,11 +88,53 @@ body, html {
 .status-dot.red {
     background-color: #f44336;
 }
+.user-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f0f4f7;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.user-info:hover {
+    background-color: #e0e7ee;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #3a6ea5;
+}
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 150px;
+}
+.user-dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+.user-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+.user-info.show-dropdown .user-dropdown {
+    display: block;
+}
 #main-panel-content {
     flex: 1;
     padding: 2rem;
     overflow-y: auto;
-    font-size: 1rem;
 }
 footer {
     background-color: #3a6ea5;
@@ -105,31 +145,4 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-.menu-toggle {
-    display: none;
-}
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    .sidebar {
-        position: fixed;
-        left: -260px;
-        top: 0;
-        height: 100%;
-        z-index: 1000;
-        transition: left 0.3s;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-    .menu-toggle {
-        display: block;
-        background-color: #3a6ea5;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-        cursor: pointer;
-    }
 }
