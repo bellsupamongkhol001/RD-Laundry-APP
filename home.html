@@ -27,12 +27,20 @@
         </aside>
         <section class="main-panel">
             <div class="panel-header">
-                <div class="panel-title">RD Wash System - โรงงานผลิตเสื้อผ้า A</div>
+                <div class="panel-title">RD Wash System - Terahop</div>
                 <div class="panel-right">
                     <span id="datetime"></span>
                     <span id="connection-status" class="connection-status">
                         <span class="status-dot green"></span> เชื่อมต่อฐานข้อมูล
                     </span>
+                    <div class="user-info" onclick="toggleUserDropdown()">
+                        <img src="https://i.pravatar.cc/40?img=3" alt="User" class="user-avatar">
+                        <span>สุดหล่อ</span>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="#">โปรไฟล์</a>
+                            <a href="#">ออกจากระบบ</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="main-panel-content">
