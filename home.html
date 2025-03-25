@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD Wash System - Home</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i> เมนู</div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>RD Wash</h1>
+            </div>
+            <ul>
+                <li onclick="loadPage('Dashboard')"><i class="fas fa-chart-pie"></i> Dashboard</li>
+                <li onclick="loadPage('Wash')"><i class="fas fa-tshirt"></i> Wash</li>
+                <li onclick="loadPage('ESD')"><i class="fas fa-bolt"></i> ESD</li>
+                <li onclick="loadPage('Employee')"><i class="fas fa-users"></i> Employee</li>
+                <li onclick="loadPage('Uniform')"><i class="fas fa-shirt"></i> Uniform</li>
+                <li onclick="loadPage('Report')"><i class="fas fa-file-alt"></i> Report</li>
+                <li onclick="loadPage('Backup')"><i class="bi bi-hdd"></i> Backup</li>
+            </ul>
+        </aside>
+        <section class="main-panel">
+            <div class="panel-header">
+                <div class="panel-title">RD Wash System - โรงงานผลิตเสื้อผ้า A</div>
+                <div class="panel-right">
+                    <span id="datetime"></span>
+                    <span id="connection-status" class="connection-status">
+                        <span class="status-dot green"></span> เชื่อมต่อฐานข้อมูล
+                    </span>
+                </div>
+            </div>
+            <div id="main-panel-content">
+                <!-- Dynamic content will load here -->
+            </div>
+        </section>
+    </div>
+    <footer>
+        © 2025 RD Wash System. All rights reserved.
+    </footer>
+    <script src="home.js"></script>
+</body>
+</html>
