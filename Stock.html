@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Inventory Management</title>
+    <link rel="stylesheet" href="stock.css">
+</head>
+<body>
+<div class="container">
+
+    <h1>📦 Stock Inventory Management</h1>
+
+    <!-- Dashboard Summary -->
     <div class="dashboard-summary">
         <div class="summary-card">
             <h3>Total Items</h3>
@@ -13,36 +27,163 @@
         </div>
     </div>
 
+    <!-- Search Tools -->
     <div class="stock-header-tools">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search by Code, Name, Category, Size, or Color" onkeyup="filterStockCards()">
-        </div>
-        <button class="add-stock-btn" onclick="openAddStockModal()">+ Add New Stock</button>
-        <button class="export-btn" onclick="exportStockData()">📥 Export CSV</button>
+        <input type="text" id="searchInput" placeholder="Search by Item Code, Name, Category, Size, or Color" onkeyup="filterStockCards()">
+        <button class="export-btn" onclick="exportStockData()">Export Report</button>
     </div>
 
+    <!-- Stock Cards Display -->
     <div class="card-container" id="stockCardContainer">
-        <!-- Stock cards dynamically injected here -->
-    </div>
-
-    <!-- Add Stock Modal -->
-    <div id="addStockModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeAddStockModal()">&times;</span>
-            <h2>Add New Stock</h2>
-            <form id="addStockForm">
-                <input type="text" placeholder="Item Name" required>
-                <input type="text" placeholder="Item Code" required>
-                <input type="text" placeholder="Category">
-                <input type="text" placeholder="Size">
-                <input type="text" placeholder="Color">
-                <input type="number" placeholder="Initial Stock" required>
-                <textarea placeholder="Note (Optional)"></textarea>
-                <button type="submit">Save</button>
-            </form>
+        <!-- Example card -->
+        <div class="stock-card">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Lab Coat</h3>
+            <p>Code: RD-1001</p>
+            <p>Size: L | Color: White</p>
+            <p>Stock: 25 pcs</p>
+            <button onclick="viewHistory('RD-1001')">View History</button>
+        </div>
+        <div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div>
+      <div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div>
+      <div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div>
+      <div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div>
+      <div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div>
+      <div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
+        </div><div class="stock-card low-stock">
+            <img src="https://via.placeholder.com/100" alt="Item Image">
+            <h3>Safety Shoes</h3>
+            <p>Code: RD-2002</p>
+            <p>Size: 42 | Color: Black</p>
+            <p>Stock: 3 pcs</p>
+            <button onclick="viewHistory('RD-2002')">View History</button>
         </div>
     </div>
+
+    <!-- Stock Movement Report Table -->
+    <h2>📊 Stock Movement Report</h2>
+    <table id="stockReportTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>Action</th>
+                <th>Amount</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody id="stockReportBody">
+            <tr>
+                <td>2024-03-25</td>
+                <td>RD-1001</td>
+                <td>Lab Coat</td>
+                <td>Added</td>
+                <td>+10</td>
+                <td>Restocked from supplier</td>
+            </tr>
+            <tr>
+                <td>2024-03-24</td>
+                <td>RD-2002</td>
+                <td>Safety Shoes</td>
+                <td>Issued</td>
+                <td>-5</td>
+                <td>Issued for new employees</td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
 
 <script src="stock.js"></script>
+<script src="https://kit.fontawesome.com/a
