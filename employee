@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management (Card View)</title>
+    <link rel="stylesheet" href="employee.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h1>👥 Employee Management</h1>
+    <div class="employee-header-tools">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search by Employee ID or Name" onkeyup="filterCards()">
+        </div>
+        <button class="add-employee-btn" onclick="alert('Add New Employee (sample)')">+ Add New Employee</button>
+    </div>
+
+    <div class="card-container" id="cardContainer">
+        
+        <div class="employee-card" data-id="EMP001" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP001</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP002" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP002</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP003" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP003</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP004" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP004</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP005" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP005</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP006" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP006</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP007" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP007</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP008" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP008</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP009" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP009</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP010" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP010</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP011" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP011</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP012" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP012</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP013" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP013</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP014" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP014</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP015" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP015</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP016" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP016</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP017" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP017</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP018" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP018</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP019" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP019</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+        <div class="employee-card" data-id="EMP020" data-name="Bell">
+            <img src="https://via.placeholder.com/100?text=Bell" alt="Employee Photo">
+            <h3>Bell</h3>
+            <p>Employee ID: EMP020</p>
+            <p>Department: RD</p>
+            <div class="card-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<script src="employee.js"></script>
+</body>
+</html>
