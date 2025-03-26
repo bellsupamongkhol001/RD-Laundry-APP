@@ -1,46 +1,60 @@
-<h1>Wash Management</h1>
-<div class="wash-header-tools">
-    <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="Search by Wash ID or Employee Name" onkeyup="filterTable()">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD Wash Management - Wash Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Wash Management</h1>
+    <div class="wash-header-tools">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search by Wash ID / Employee Name / Employee ID" onkeyup="filterTable()">
+        </div>
+        <button class="add-wash-btn" onclick="alert('Add new wash job (sample)');">+ Add New Wash Job</button>
     </div>
-    <button class="add-wash-btn" onclick="alert('Add new wash job (sample)');">+ Add New Wash Job</button>
-</div>
-<table class="wash-table" id="washTable">
-    <thead>
-        <tr>
-            <th>Wash ID</th>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>Status</th>
-            <th>Details</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>W001</td>
-            <td>EMP001</td>
-            <td>Sudlor</td>
-            <td class="status in-washing">In Washing</td>
-            <td><button onclick="viewDetails('W001')">View Details</button></td>
-            <td><button>Edit</button><button>Delete</button></td>
-        </tr>
-        <tr>
-            <td>W002</td>
-            <td>EMP002</td>
-            <td>Sudlor</td>
-            <td class="status completed">Completed</td>
-            <td><button onclick="viewDetails('W002')">View Details</button></td>
-            <td><button>Edit</button><button>Delete</button></td>
-        </tr>
-    </tbody>
-</table>
+    <table class="wash-table" id="washTable">
+        <thead>
+            <tr>
+                <th>Wash ID</th>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Status</th>
+                <th>Details</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>W001</td>
+                <td>EMP001</td>
+                <td>Sudlor</td>
+                <td><span class="status in-washing">In Washing</span></td>
+                <td><button onclick="viewDetails('W001')">View Details</button></td>
+                <td><button>Edit</button><button>Delete</button></td>
+            </tr>
+            <tr>
+                <td>W002</td>
+                <td>EMP002</td>
+                <td>Sudlor</td>
+                <td><span class="status completed">Completed</span></td>
+                <td><button onclick="viewDetails('W002')">View Details</button></td>
+                <td><button>Edit</button><button>Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-<div id="detailModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Wash Job Details</h2>
-    <div id="modal-body-content"></div>
-  </div>
-</div>
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Wash Job Details</h2>
+            <div id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
