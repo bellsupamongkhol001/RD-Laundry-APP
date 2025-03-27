@@ -1,47 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uniform Management (Card View)</title>
-    <link rel="stylesheet" href="uniform.css">
-</head>
-<body>
-<div class="container">
-    <h1>🧥 Uniform Management</h1>
-    <div class="uniform-header-tools">
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search by Uniform Code or Size" onkeyup="filterUniformCards()">
-        </div>
-        <button class="add-uniform-btn" onclick="alert('Add New Uniform (sample)')">+ Add New Uniform</button>
-    </div>
+<h2>🡥 Uniform Management</h2>
 
-    <div class="card-container" id="uniformCardContainer">
-        <div class="uniform-card" data-code="RD-1014-4XL-005" data-size="4XL">
-            <img src="https://via.placeholder.com/100" alt="Uniform Image">
-            <h3>Smock</h3>
-            <p>Uniform Code: RD-1014-4XL-005</p>
-            <p>Size: 4XL</p>
-            <div class="card-actions">
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
-            </div>
-        </div>
-        <div class="uniform-card" data-code="RD-2024-290-007" data-size="290">
-            <img src="https://via.placeholder.com/100" alt="Uniform Image">
-            <h3>Shoes</h3>
-            <p>Uniform Code: RD-2024-290-007</p>
-            <p>Size: 290</p>
-            <div class="card-actions">
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
-            </div>
-        </div>
-        <!-- Add more uniform cards as needed -->
-    </div>
+<div class="uniform-header-tools">
+  <div class="search-box">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search by Code or Size" onkeyup="filterUniformCards()">
+  </div>
+  <button class="add-uniform-btn" onclick="openUniformModal()">
+    <i class="fas fa-plus-circle"></i> Add New Uniform
+  </button>
 </div>
-<script src="uniform.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-</html>
+
+<div class="card-container" id="uniformCardContainer"></div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" style="display:none;">
+  <div class="modal">
+    <h3 id="modalTitle">Add New Uniform</h3>
+    <input type="text" id="uniformCode" placeholder="Uniform Code">
+    <input type="text" id="uniformType" placeholder="Type (Smock or Shoes)">
+    <input type="text" id="uniformSize" placeholder="Size">
+    <input type="text" id="uniformColor" placeholder="Color (e.g. Blue, Red, White)">
+    <label for="uniformImage">Upload Image</label>
+    <input type="file" id="uniformImage" accept="image/*">
+    <button class="add-uniform-btn" onclick="saveUniform()">Save</button>
+    <button class="delete-btn" onclick="closeUniformModal()">Cancel</button>
+  </div>
+</div>
