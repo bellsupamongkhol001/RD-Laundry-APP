@@ -1,0 +1,202 @@
+/* -----------------------------
+   Global Reset & Variables
+----------------------------- */
+:root {
+  --primary-color: #3a6ea5;
+  --primary-dark: #2f4f6f;
+  --accent-color: #f0f4f7;
+  --text-dark: #2f4f6f;
+  --text-light: #ffffff;
+  --success: #4caf50;
+  --danger: #f44336;
+  --warning: #ff9800;
+  --font-main: 'Segoe UI', sans-serif;
+  --transition-default: 0.3s ease;
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* -----------------------------
+   Typography
+----------------------------- */
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f4f7fa;
+  color: var(--text-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------
+   Layout Utility
+----------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* -----------------------------
+   Components: Button
+----------------------------- */
+.button,
+.btn-primary,
+.btn-danger,
+.btn-outline {
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color var(--transition-default);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* -----------------------------
+   Components: Card
+----------------------------- */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* -----------------------------
+   Components: Table
+----------------------------- */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* -----------------------------
+   Form Elements
+----------------------------- */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--transition-default);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(58, 110, 165, 0.2);
+}
+
+/* -----------------------------
+   Status Indicators
+----------------------------- */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.status-green {
+  background-color: var(--success);
+}
+
+.status-red {
+  background-color: var(--danger);
+}
+
+.status-yellow {
+  background-color: var(--warning);
+}
