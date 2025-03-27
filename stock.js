@@ -1,5 +1,4 @@
-// stock.js
-
+// ข้อมูลจำลองของ Stock
 const stockItems = [
   {
     code: "RD-001",
@@ -7,7 +6,8 @@ const stockItems = [
     size: "XL",
     color: "White",
     stock: 20,
-    counted: null
+    count: null,
+    image: "https://via.placeholder.com/150?text=Smock"
   },
   {
     code: "RD-002",
@@ -15,167 +15,147 @@ const stockItems = [
     size: "42",
     color: "Black",
     stock: 10,
-    counted: null
+    count: null,
+    image: "https://via.placeholder.com/150?text=Shoes"
   }
 ];
 
-const countHistory = [];
-
+// ฟังก์ชันเรนเดอร์การ์ดแสดงรายการสต็อก
 function renderStockCards() {
   const container = document.getElementById("stockCardContainer");
   container.innerHTML = "";
+
   stockItems.forEach(item => {
     const card = document.createElement("div");
     card.className = "stock-card";
     card.innerHTML = `
-      <img src="https://via.placeholder.com/150?text=${item.name}" alt="${item.name}" class="item-image">
+      <img src="${item.image}" class="item-image" alt="${item.name}">
       <h3>${item.name}</h3>
       <p>Size: ${item.size}</p>
       <p>Color: ${item.color}</p>
       <p>Stock: ${item.stock}</p>
+      <div class="card-actions">
+        <button class="card-btn history" onclick="viewHistory('${item.code}')">
+          <i class="fas fa-clock"></i> History
+        </button>
+        <button class="card-btn adjust" onclick="openAdjustStockModal('${item.code}')">
+          <i class="fas fa-sliders-h"></i> Adjust
+        </button>
+        <button class="card-btn detail" onclick="viewDetails('${item.code}')">
+          <i class="fas fa-info-circle"></i> Detail
+        </button>
+      </div>
     `;
     container.appendChild(card);
   });
 }
 
-function filterStockCards() {
-  const keyword = document.getElementById("searchInput").value.toLowerCase();
-  const cards = document.querySelectorAll(".stock-card");
-  cards.forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(keyword) ? "block" : "none";
-  });
-}
-
+// การแสดง modal นับสต็อกรายเดือน
 function openInventoryCountModal() {
-  document.getElementById("countModal").style.display = "flex";
-  renderCountTable();
-}
+  const modal = document.getElementById("countModal");
+  const table = document.getElementById("countTableBody");
+  const totalEl = document.getElementById("countTotal");
 
-function renderCountTable() {
-  const tbody = document.getElementById("countTableBody");
-  tbody.innerHTML = "";
+  table.innerHTML = "";
+  let total = 0;
+
   stockItems.forEach((item, index) => {
+    total += item.stock;
+
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${item.name}</td>
       <td>${item.size}</td>
       <td>${item.color}</td>
       <td>${item.stock}</td>
-      <td><input type="number" id="count-${index}" value="${item.counted !== null ? item.counted : ''}" ${item.counted !== null ? 'disabled' : ''}></td>
       <td>
-        <button onclick="${item.counted !== null ? `editCount(${index})` : `confirmCount(${index})`}">
-          ${item.counted !== null ? 'Edit' : 'Confirm'}
-        </button>
+        <input type="number" id="countInput-${index}" placeholder="Counted" ${item.count !== null ? "value='" + item.count + "' disabled" : ""}>
+      </td>
+      <td>
+        <button class="count-btn" onclick="confirmCount(${index})" ${item.count !== null ? "style='display:none'" : ""}>Confirm</button>
+        <button class="edit-btn" onclick="editCount(${index})" ${item.count === null ? "style='display:none'" : ""}>Edit</button>
       </td>
     `;
-    tbody.appendChild(row);
+    table.appendChild(row);
   });
-  updateTotalCounted();
+
+  totalEl.innerText = total;
+  modal.style.display = "flex";
 }
 
+// ยืนยันการนับสต็อก
 function confirmCount(index) {
-  const input = document.getElementById(`count-${index}`);
+  const input = document.getElementById(`countInput-${index}`);
   const value = parseInt(input.value);
-  if (!isNaN(value)) {
-    stockItems[index].counted = value;
-    renderCountTable();
+
+  if (isNaN(value)) {
+    alert("Please enter a valid number");
+    return;
   }
+
+  stockItems[index].count = value;
+  input.disabled = true;
+  input.nextElementSibling.style.display = "none"; // confirm btn
+  input.nextElementSibling.nextElementSibling.style.display = "inline-block"; // edit btn
 }
 
+// แก้ไขข้อมูลนับสต็อก
 function editCount(index) {
-  stockItems[index].counted = null;
-  renderCountTable();
+  const input = document.getElementById(`countInput-${index}`);
+  stockItems[index].count = null;
+  input.disabled = false;
+  input.nextElementSibling.style.display = "inline-block"; // confirm
+  input.nextElementSibling.nextElementSibling.style.display = "none"; // edit
 }
 
-function cancelInventoryCount() {
-  if (confirm("Cancel current count session?")) {
-    stockItems.forEach(item => (item.counted = null));
+// ปิด modal การนับสต็อก
+function closeInventoryCountModal() {
+  if (confirm("ยกเลิกการนับสต็อกใช่หรือไม่?")) {
     document.getElementById("countModal").style.display = "none";
   }
 }
 
-function confirmSubmitInventoryCount() {
-  if (confirm("Submit this inventory count?")) {
-    const today = new Date().toISOString().split("T")[0];
-    stockItems.forEach(item => {
-      if (item.counted !== null) {
-        countHistory.push({
-          date: today,
-          ...item,
-          operator: "Admin"
-        });
-      }
-    });
-    stockItems.forEach(item => {
-      if (item.counted !== null) {
-        item.stock = item.counted;
-        item.counted = null;
-      }
-    });
-    document.getElementById("countModal").style.display = "none";
-    renderStockCards();
-    renderCountHistory();
-  }
+// ฟังก์ชันสำหรับการดูรายละเอียด
+function viewDetails(code) {
+  document.getElementById("detailModal").style.display = "flex";
+  // คุณสามารถโหลดข้อมูลการใช้งานจริงจาก API หรือ Local Data ได้ที่นี่
 }
 
-function renderCountHistory() {
-  const tbody = document.getElementById("countHistoryTableBody");
-  tbody.innerHTML = "";
-  countHistory.forEach(entry => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${entry.date}</td>
-      <td>${entry.code}</td>
-      <td>${entry.name}</td>
-      <td>${entry.size}</td>
-      <td>${entry.color}</td>
-      <td>${entry.stock}</td>
-      <td>${entry.stock}</td>
-      <td>${entry.operator}</td>
-    `;
-    tbody.appendChild(row);
-  });
-}
-
+// ปิด detail modal
 function closeDetailModal() {
   document.getElementById("detailModal").style.display = "none";
 }
 
-function closeInventoryCountModal() {
-  document.getElementById("countModal").style.display = "none";
+// แสดง modal ปรับสต็อก
+function openAdjustStockModal(code) {
+  const item = stockItems.find(i => i.code === code);
+  const newQty = prompt(`Enter new quantity for ${item.name}:`, item.stock);
+  if (newQty !== null && !isNaN(newQty)) {
+    item.stock = parseInt(newQty);
+    renderStockCards();
+  }
 }
 
-function closeCountHistoryModal() {
-  document.getElementById("countHistoryModal").style.display = "none";
+// ประวัติ
+function viewHistory(code) {
+  alert(`Viewing stock history for ${code}`);
 }
 
+// ฟิลเตอร์การค้นหา
+function filterStockCards() {
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".stock-card");
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(keyword) ? "block" : "none";
+  });
+}
+
+// Export รายงาน
 function exportStockData() {
-  alert("Exporting stock report...");
+  alert("Export function called. Implement actual export logic.");
 }
 
-function exportCountHistory() {
-  alert("Exporting count history...");
-}
-
-function filterCountTable() {
-  const keyword = document.getElementById("countSearchInput").value.toLowerCase();
-  const rows = document.querySelectorAll("#countTableBody tr");
-  rows.forEach(row => {
-    row.style.display = row.innerText.toLowerCase().includes(keyword) ? "table-row" : "none";
-  });
-}
-
-function filterHistoryTable() {
-  const keyword = document.getElementById("historySearchInput").value.toLowerCase();
-  const rows = document.querySelectorAll("#countHistoryTableBody tr");
-  rows.forEach(row => {
-    row.style.display = row.innerText.toLowerCase().includes(keyword) ? "table-row" : "none";
-  });
-}
-
-function updateTotalCounted() {
-  const total = stockItems.reduce((sum, item) => sum + (item.counted !== null ? 1 : 0), 0);
-  document.getElementById("totalCounted").innerText = total;
-}
-
+// เริ่มต้นโหลดหน้า
 renderStockCards();
