@@ -178,7 +178,7 @@ export function renderWashHistory(data, currentPage = 1, rowsPerPage = 5) {
   const pageData = data.slice(start, start + rowsPerPage);
 
   if (pageData.length === 0) {
-    tbody.innerHTML = `<tr><td colspan='6' style='text-align:center'>No history found</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan='6' style='text-align:center'>🚫 No history found</td></tr>`;
     return;
   }
 
