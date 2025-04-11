@@ -1,0 +1,225 @@
+/* ==================== GLOBAL ==================== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #2e3a59;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2, h3 {
+  margin-bottom: 0.5rem;
+  color: #2e3a59;
+  font-size: 1.4rem;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.header h2 i {
+  margin-right: 8px;
+  color: #3a6ea5;
+}
+
+/* ==================== DASHBOARD ==================== */
+.dashboard {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  min-width: 160px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card .icon {
+  font-size: 24px;
+  margin-right: 12px;
+  color: #3a6ea5;
+}
+
+.card .info .title {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card .info .number {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ==================== CONTROLS ==================== */
+.header-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.header-controls h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #3a6ea5;
+}
+
+.control-table {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.control-table input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 240px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary { background: #007bff; color: white; }
+.btn-primary:hover { background: #005ecb; }
+.btn-success { background: #28a745; color: white; }
+.btn-success:hover { background: #218838; }
+.btn-danger { background: #dc3545; color: white; }
+.btn-danger:hover { background: #c82333; }
+.btn-secondary { background: #6c757d; color: white; }
+.btn-secondary:hover { background: #5a6268; }
+
+/* ==================== CARD GRID ==================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden { display: none; }
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #3a6ea5;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+}
+
+.table-panel {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.table-panel table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-panel th,
+.table-panel td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.summary-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.summary-section p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .header-controls { flex-direction: column; align-items: stretch; }
+  .control-table { width: 100%; flex-direction: column; }
+  .control-table input, .control-table .btn { width: 100%; }
+  .modal-actions { flex-direction: column; }
+}
